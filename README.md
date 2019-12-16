@@ -7,6 +7,8 @@ jurjunk - Jurgis Juknevičius <br/>
 mariuskriukovas - Marius Kriukovas <br/>
 SaintSorrow - Deimantas Gedgaudas <br/>
 
+
+
 ## Functionality
 To access app you need to login or sign up.
 
@@ -32,4 +34,10 @@ Optional features: <br/>
 ## Visual prototype
 Link to the app prototype: https://www.figma.com/file/yL1qkotPMkT3URdrEh4mzv/Untitled?node-id=0%3A1
 Note: Not all features that are in the prototype are going to be implemented.
+
+## Techical decisions
+TBA
+
+## Responsibilities
+TBA
 
