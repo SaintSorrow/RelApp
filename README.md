@@ -3,7 +3,6 @@ Engineering of Mobile Systems, Assignment 3, group project
 
 
 ## Contributors
-
-jurjunk - Jurgis Juknevičius
-mariuskriukovas - Marius Kriukovas
-SaintSorrow - Deimantas Gedgaudas
+jurjunk - Jurgis Juknevičius <br/>
+mariuskriukovas - Marius Kriukovas <br/>
+SaintSorrow - Deimantas Gedgaudas <br/>
