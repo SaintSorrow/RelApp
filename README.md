@@ -6,7 +6,7 @@ Engineering of Mobile Systems, Assignment 3, group project
 jurjukn - Jurgis Juknevičius <br/>
 mariuskriukovas - Marius Kriukovas <br/>
 SaintSorrow - Deimantas Gedgaudas <br/>
-
+aurelijacyg - Aurelija Čygaitė <br/>
 
 
 ## Functionality
