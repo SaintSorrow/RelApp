@@ -10,7 +10,7 @@ const CreateMarker = (coordinate)=>{
             coordinate={coordinate}
             title={"title"}
             description={"description"}
-            onLongPress={(props)=>{
+            onLongPress={(props)=>{console.log("markeris")
                 console.log(props.nativeEvent.coordinate)
             }}
         />
@@ -54,7 +54,6 @@ export default class Map extends React.Component {
         );
     }
 }
-
 
 const styles = StyleSheet.create({
     mapStyle: {

@@ -8,12 +8,14 @@ import {RelappLogo, TopSeparator} from "../components/stylingComponents";
 import Routes from "./Routes";
 import Profiles from "./Profiles";
 import History from "./History";
+import CreateRoute from "../routesComponents/CreateRoute";
+import {RoutesNavigation} from "../routesComponents/RoutesNavigation";
 
 
 const TabScreen = createMaterialTopTabNavigator(
     {
         History: { screen: History },
-        Routes: { screen: Routes },
+        Routes: { screen: RoutesNavigation },
         Profile: { screen: Profiles },
     },
     {

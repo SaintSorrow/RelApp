@@ -1,5 +1,6 @@
 import React from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Ionicons} from "@expo/vector-icons";
 
 
 export const TopSeparator = ()=> {
@@ -21,10 +22,29 @@ export const Space = (props)=>{
 
 //'#F0E6E6'
 
+export function IconsComponent (props)
+{
+    return(
+        <View style={props.style}>
+            <TouchableOpacity  onPress={props.callback}>
+                <Ionicons name={props.name} size={30} color={'black'} />
+            </TouchableOpacity>
+        </View>
+    )
+}
+
 export const RelappLogo = ()=>{
     return (
         <View style= {{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#F0E6E6', }}>
             <Text style={{fontWeight: 'bold', fontSize:36}}>Relapp</Text>
+        </View>
+    )
+}
+
+export const RelappHeader = (props)=>{
+    return (
+        <View style= {{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#F0E6E6', }}>
+            <Text style={{fontWeight: 'bold', fontSize:26}}>{props.text}</Text>
         </View>
     )
 }

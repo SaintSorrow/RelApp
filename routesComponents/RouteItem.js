@@ -1,17 +1,6 @@
 import {View, Text, StyleSheet, TextInput, TouchableOpacity} from "react-native";
 import React, {useState} from "react";
-import {Ionicons} from "@expo/vector-icons";
-
-function IconsComponent (props)
-{
-    return(
-        <View style={props.style}>
-            <TouchableOpacity  onPress={props.callback}>
-                <Ionicons name={props.name} size={30} color={'black'} />
-            </TouchableOpacity>
-        </View>
-    )
-}
+import {IconsComponent, Space} from "../components/stylingComponents";
 
 export default function RouteItem()
 {
@@ -24,15 +13,13 @@ export default function RouteItem()
         else return 'md-star-outline'
     }
 
-    const defaultCallback = (text) =>
-    {
-        console.log(text)
-    }
 
     return (
         <View style={Styles.customView}>
             <View style={Styles.mainView}>
-                <TouchableOpacity   onPress={()=>{defaultCallback("TouchableOpacity")}}>
+                <TouchableOpacity   onPress={()=>{
+                    console.log("TouchableOpacity")
+                }}>
                     <Text style={Styles.textStyle} >Route I</Text>
                 </TouchableOpacity>
             </View>
@@ -41,7 +28,10 @@ export default function RouteItem()
                 <View style={Styles.descriptionView}>
                     <Text>labas</Text>
                 </View>
-                <IconsComponent name = {selectIconName()} style={Styles.iconView} callback = {()=>{defaultCallback("TouchableOpacity")}}/>
+                <IconsComponent name = {selectIconName()} style={Styles.iconView} callback = {()=>{
+                    isFavorite(!favorite);
+                    console.log("TouchableOpacity")
+                }}/>
             </View>
         </View>
     )
@@ -87,5 +77,4 @@ const Styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
     },
-
 })
