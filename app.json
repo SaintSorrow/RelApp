@@ -20,6 +20,14 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "android": {
+      "package": "ltUnited.reactNative.rellApp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCOfG7DGXK0rcSIj6qaktaCSWegSZ4rsK4"
+        }
+      }
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
