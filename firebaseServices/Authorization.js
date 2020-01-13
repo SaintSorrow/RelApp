@@ -54,6 +54,17 @@ export async function changeUserPassword(currentPassword, newPassword) {
     await user.reauthenticateWithCredential(credentials);
     await user.updatePassword(newPassword);
   } catch(err) {
+    console.log(err);
+    throw err;
+  }
+}
+
+export async function getCurrentUser() {
+  try {
+    const user = firebase.auth().currentUser;
+    return user;
+  } catch (err) {
+    console.log(err);
     throw err;
   }
 }
