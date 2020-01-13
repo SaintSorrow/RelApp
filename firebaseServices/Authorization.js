@@ -1,10 +1,14 @@
-import firebase from './firebase';
+import firebase from './Firebase';
+import { addUser } from '../databaseServices/UserService';
 
 export async function handleUserSignUp(email, password, name) {
   try {
     const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-    return result.user;
+    const user = result.user;
+    await addUser(user.uid, email, name);
+    return user;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 }
@@ -14,6 +18,7 @@ export async function handleUserLogIn(email, password) {
     result = await firebase.auth().signInWithEmailAndPassword(email, password);
     return result.user;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 }
@@ -22,6 +27,7 @@ export async function handlerUserSignOut() {
   try {
     await firebase.auth().signOut();
   } catch (err) {
+    console.log(err);
     throw err;
   }
 }
@@ -36,6 +42,7 @@ export async function checkUserAuth() {
       }
     });
   } catch (err){
+    console.log(err);
     throw err;
   }
 }
