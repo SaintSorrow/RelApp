@@ -34,7 +34,7 @@ export async function getRouteById(routeId) {
 }
 
 function formatRoute(data, userId) {
-  const isFavorite = data.userFavorite.contains(userId);
+  const isFavorite = data.userFavorite.includes(userId);
   const route = {
     id: doc.id,
     name: data.name,
@@ -56,13 +56,27 @@ export async function insertRoute(route) {
 }
 
 export async function addRouteAsFavorite(userId, routeId) {
+  await updateFavorites(userId, routeId, true);
+}
+
+export async function removeRouteFromFavorites(userId, routeId) {
+  await updateFavorites(userId, routeId, false);
+}
+
+async function updateFavorites(userId, routeId, add) {
   try {
     const doc = await db.collection(Collections.routes).doc(routeId).get();
     const data = doc.data();
     let favorites = data.userFavorite;
-    if (!favorites.contains(userId)) {
+    const isFound = favorites.includes(userId);
+
+    if (!add && isFound) {
+      const idx = favorites.indexOf(userId);
+      favorites.splice(idx, 1);
+      await db.collection(Collections.routes).doc(routeId).update();
+    } else if (add && !isFound) {
       favorites.push(userId);
-      await db.collection(Collections.routes).doc(routeId).update(favorites);
+      await db.collection(Collections.route).doc(routeId).update(favorites);
     }
   } catch (err) {
     console.log(err);
