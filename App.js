@@ -4,11 +4,9 @@ import Navigation from "./screens/Navigation";
 
 export default function App()
 {
-    const [state, setState] = useState("");
-    console.log("prrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrintas",state);
     return (
         <View style={{flex: 1}}>
-            <Navigation callback = {setState}/>
+            <Navigation/>
         </View>
     )
   }

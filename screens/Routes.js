@@ -1,5 +1,4 @@
 import {View, ScrollView, StyleSheet, TextInput, TouchableOpacity, Text} from "react-native";
-import MapView from "react-native-maps";
 import React, {useState} from "react";
 import Map from "../routesComponents/Map";
 import {Space} from "../components/stylingComponents";
@@ -22,11 +21,11 @@ export default function Routes(props)
                 <ScrollView>
                     <RouteItem callback = {()=> props.navigation.navigate("SingleRoute")}/>
                     <Space size = {30}/>
-                    <RouteItem/>
+                    <RouteItem callback = {()=> props.navigation.navigate("SingleRoute")} />
                     <Space size = {30}/>
-                    <RouteItem/>
+                    <RouteItem callback = {()=> props.navigation.navigate("SingleRoute")}/>
                     <Space size = {30}/>
-                    <RouteItem/>
+                    <RouteItem callback = {()=> props.navigation.navigate("SingleRoute")}/>
                     <Space size = {30}/>
                 </ScrollView>
             </View>
