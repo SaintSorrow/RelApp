@@ -39,7 +39,7 @@ const ButtonStyles = StyleSheet.create({
         backgroundColor: '#F0E6E6',
     },
     miniButton: {
-        width: '28%',
+        width: '30%',
         height: 50,
         justifyContent: 'center',
         borderRadius: 10,

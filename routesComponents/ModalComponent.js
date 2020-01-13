@@ -32,8 +32,11 @@ export function MainModal(props)
         >
             <View style={styles.modalBody}>
                 <Space size = {5}/>
-                <RelappHeader text = {props.header}/>
+                <RelappHeader text = {props.header} size = {26}/>
                 <View style={styles.lineStyle}/>
+                <Space size = {10}/>
+                {props.content}
+                <Space size = {5}/>
                 <RelappButton style = {ButtonTypes().mediumButton} text = "Done" callback = {props.callback}/>
             </View>
         </Modal>
@@ -64,3 +67,15 @@ const styles = StyleSheet.create({
         width: '80%',
     },
 });
+
+export const ModalStyles = StyleSheet.create({
+    textView:{
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '80%',
+        height: '80%',
+        backgroundColor: '#AF8989',
+    },
+});
+

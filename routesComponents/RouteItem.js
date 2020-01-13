@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, TextInput, TouchableOpacity} from "react-native"
 import React, {useState} from "react";
 import {IconsComponent, Space} from "../components/stylingComponents";
 
-export default function RouteItem()
+export default function RouteItem(props)
 {
     const [text, setText] = useState("")
     const [favorite, isFavorite] = useState(false)
@@ -12,18 +12,16 @@ export default function RouteItem()
         if(favorite) return 'md-star'
         else return 'md-star-outline'
     }
-
-
+    
     return (
         <View style={Styles.customView}>
             <View style={Styles.mainView}>
                 <TouchableOpacity   onPress={()=>{
-                    console.log("TouchableOpacity")
+                    props.callback()
                 }}>
                     <Text style={Styles.textStyle} >Route I</Text>
                 </TouchableOpacity>
             </View>
-
             <View style={Styles.secondView}>
                 <View style={Styles.descriptionView}>
                     <Text>labas</Text>
@@ -71,7 +69,6 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-
     textStyle:{
         fontWeight: 'bold',
         color: 'black',

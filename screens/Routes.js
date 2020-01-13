@@ -12,6 +12,7 @@ import {ButtonTypes, RelappButton} from "../components/RelappButton";
 export default function Routes(props)
 {
     const [text, setText] = useState("")
+
     return (
         <View style={styles.container}>
             <Space size = {30}/>
@@ -19,7 +20,7 @@ export default function Routes(props)
             <Space size = {20}/>
             <View style={styles.container2}>
                 <ScrollView>
-                    <RouteItem/>
+                    <RouteItem callback = {()=> props.navigation.navigate("SingleRoute")}/>
                     <Space size = {30}/>
                     <RouteItem/>
                     <Space size = {30}/>
