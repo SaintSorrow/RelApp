@@ -22,7 +22,7 @@ export async function getAllRoutes() {
 
 export async function getRouteById(routeId) {
   try {
-    const doc = await db.collection(Collections.routes).doc(routeId);
+    const doc = await db.collection(Collections.routes).doc(routeId).get();
     const currentUser = await getCurrentUser();
     const route = formatRoute(doc.data(), currentUser.uid)
 
@@ -44,4 +44,26 @@ function formatRoute(data, userId) {
   };
 
   return route;
+}
+
+export async function getRouteComments(routeId) {
+  try {
+    const comments = [];
+    const commentsSnapshot = db.collection(Collections.routes).where('routeId', '==', routeId);
+
+    commentsSnapshot.forEach(doc => {
+      const data = doc.data();
+      const comment = {
+        id: doc.id,
+        comment: data.comment,
+        routeId: data.routeId,
+        username: data.username
+      };
+
+      comments.push(comment);
+    }) 
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
 }
