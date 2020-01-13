@@ -16,22 +16,4 @@ firebase.initializeApp(firebaseConfig);
 
 export const firestore = firebase.firestore();
 
-export async function handleUserSignUp(email, password) {
-  try {
-    const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-    console.log("******************RESULT****************");
-    console.log(result);
-    console.log("UID: ", result.user.uid);
-    console.log("******************RESULT****************");
-    return result;
-  } catch (err) {
-    console.log("***************ERROR********************");
-    console.log("Error code: ", err.code);
-    console.log("Error message: ", err.message);
-    console.log(err);
-    //throw err;
-  }
-  
-}
-
 export default firebase;
