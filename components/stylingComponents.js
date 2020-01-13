@@ -43,8 +43,8 @@ export const RelappLogo = ()=>{
 
 export const RelappHeader = (props)=>{
     return (
-        <View style= {{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#F0E6E6', }}>
-            <Text style={{fontWeight: 'bold', fontSize:26}}>{props.text}</Text>
+        <View style= {{ alignItems: 'center', justifyContent: 'center',}}>
+            <Text style={{fontWeight: 'bold', fontSize:props.size, textAlign: 'center', }}  >{props.text}</Text>
         </View>
     )
 }
