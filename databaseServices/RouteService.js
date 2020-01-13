@@ -54,3 +54,18 @@ export async function insertRoute(route) {
     throw err;
   } 
 }
+
+export async function addRouteAsFavorite(userId, routeId) {
+  try {
+    const doc = await db.collection(Collections.routes).doc(routeId).get();
+    const data = doc.data();
+    let favorites = data.userFavorite;
+    if (!favorites.contains(userId)) {
+      favorites.push(userId);
+      await db.collection(Collections.routes).doc(routeId).update(favorites);
+    }
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+}
