@@ -46,28 +46,6 @@ function formatRoute(data, userId) {
   return route;
 }
 
-export async function getRouteComments(routeId) {
-  try {
-    const comments = [];
-    const commentsSnapshot = db.collection(Collections.comments).where('routeId', '==', routeId);
-
-    commentsSnapshot.forEach(doc => {
-      const data = doc.data();
-      const comment = {
-        id: doc.id,
-        comment: data.comment,
-        routeId: data.routeId,
-        username: data.username
-      };
-
-      comments.push(comment);
-    }) 
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
-}
-
 export async function insertRoute(route) {
   try {
     await db.collection(Collections.routes).doc().set(route);
