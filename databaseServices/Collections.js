@@ -1,4 +1,5 @@
 export const Collections = {
   users: "users",
-  routes: "routes"
+  routes: "routes",
+  comments: "comments"
 };

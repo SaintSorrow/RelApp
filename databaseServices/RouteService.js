@@ -49,7 +49,7 @@ function formatRoute(data, userId) {
 export async function getRouteComments(routeId) {
   try {
     const comments = [];
-    const commentsSnapshot = db.collection(Collections.routes).where('routeId', '==', routeId);
+    const commentsSnapshot = db.collection(Collections.comments).where('routeId', '==', routeId);
 
     commentsSnapshot.forEach(doc => {
       const data = doc.data();
@@ -66,4 +66,13 @@ export async function getRouteComments(routeId) {
     console.log(err);
     throw err;
   }
+}
+
+export async function insertRoute(route) {
+  try {
+    await db.collection(Collections.routes).doc().set(route);
+  } catch (err) {
+    console.log(err);
+    throw err;
+  } 
 }
